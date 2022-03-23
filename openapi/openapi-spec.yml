@@ -1,0 +1,249 @@
+openapi: 3.0.2
+info:
+    title: Product Catalog API
+    version: 1.0.0
+    description: API for the Product Catalog Service
+    license:
+        name: MIT License
+        url: 'https://opensource.org/licenses/MIT'
+paths:
+    '/services/product/{id}':
+        get:
+            responses:
+                '200':
+                    $ref: '#/components/responses/product'
+                '404':
+                    description: Product not found
+            security:
+                -
+                    product-catalog-api: []
+        parameters:
+            -
+                examples:
+                    product-example-1:
+                        value: '329299'                    
+                name: id
+                schema:
+                    type: string
+                in: path
+                required: true
+    /services/products:
+        summary: Get paginated list of Products
+        get:
+            parameters:
+                -
+                    examples:
+                        paginated-product-list-example1:
+                            value: '5'
+                    name: limit
+                    description: Max number of records returned.
+                    schema:
+                        type: integer
+                    in: query
+                -
+                    examples:
+                        paginated-product-list-1:
+                            value: '1'
+                    name: page
+                    description: The page number. First page is 1.
+                    schema:
+                        type: integer
+                    in: query
+            responses:
+                '200':
+                    $ref: '#/components/responses/paginated-product-list'
+            security:
+                -
+                    product-catalog-api: []
+            summary: Get paginated list of products
+    '/services/product/list/{ids}':
+        get:
+            responses:
+                '200':
+                    $ref: '#/components/responses/product-list'
+            security:
+                -
+                    product-catalog-api: []
+        parameters:
+            -
+                examples:
+                    product-list-with-inventory:
+                        value: 'a123456,b456768'
+                name: ids
+                schema:
+                    type: string
+                in: path
+                required: true
+            -
+                name: inventory
+                description: Whether to include inventory information in the response
+                schema:
+                    type: boolean
+                in: query
+components:
+    schemas:
+        paginated-product-list:
+            description: ''
+            type: object
+        product:
+            description: ''
+            type: object
+    responses:
+        product:
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/product'
+                    examples:
+                        product-example-1:
+                            value:
+                                itemId: '329299'
+                                name: Quarkus T-shirt
+                                desc: >-
+                                    Our T-Shirt is an everyday essential! This short-sleeve heavyweight
+                                    T-shirt is comfortable, economical and made to last. Designed with a
+                                    traditional fit that runs true to size, he’ll show off his personality,
+                                    humor and interests with an easy, relaxed style.
+                                price: 10
+                                quantity: 736
+            description: ''
+        paginated-product-list:
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/paginated-product-list'
+                    examples:
+                        paginated-product-list-example-1:
+                            value:
+                                content:
+                                    -
+                                        itemId: '329299'
+                                        name: Quarkus T-shirt
+                                        desc: >-
+                                            Our T-Shirt is an everyday essential! This short-sleeve
+                                            heavyweight T-shirt is comfortable, economical and made to last.
+                                            Designed with a traditional fit that runs true to size, he’ll show
+                                            off his personality, humor and interests with an easy, relaxed
+                                            style.
+                                        price: 10
+                                        quantity: 736
+                                    -
+                                        itemId: '329199'
+                                        name: Pronounced Kubernetes
+                                        desc: >-
+                                            Our Men's Value T-Shirt is an everyday essential! This
+                                            short-sleeve heavyweight T-shirt is comfortable, economical and
+                                            made to last. Designed with a traditional fit that runs true to
+                                            size, he’ll show off his personality, humor and interests with an
+                                            easy, relaxed style.
+                                        price: 9
+                                        quantity: 512
+                                    -
+                                        itemId: '165613'
+                                        name: Knit socks
+                                        desc: >-
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna
+                                            leo, cursus a fringilla et, aliquam at tellus. Praesent est nulla,
+                                            mattis in auctor vitae, commodo sed eros. Etiam volutpat a felis
+                                            vel elementum. Duis ut vestibulum orci, ut hendrerit felis. Nulla
+                                            nunc lectus, luctus ut tortor a, sollicitudin gravida dolor.
+                                            Integer euismod, velit non tempor mattis, odio neque ornare neque,
+                                            nec sollicitudin elit massa nec ante.
+                                        price: 4.15
+                                        quantity: 256
+                                    -
+                                        itemId: '165614'
+                                        name: Quarkus H2Go water bottle
+                                        desc: >-
+                                            Copper vacuum insulated sport bottle with 650 ml capacity.
+                                            Durable, double wall stainless steel vacuum construction with
+                                            copper insulation, which allows your beverage to stay cold for 48
+                                            hours and at least 12 hours for hot beverages. The construction
+                                            also prevents condensation on the outside of the bottle. Material:
+                                            Stainless Steel. Colour: Black Height:27,20 cm Diameter:7,20 cm
+                                            Weight:380 gram
+                                        price: 14.45
+                                        quantity: 54
+                                    -
+                                        itemId: '165954'
+                                        name: Patagonia Refugio pack 28L
+                                        desc: >-
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna
+                                            leo, cursus a fringilla et, aliquam at tellus. Praesent est nulla,
+                                            mattis in auctor vitae, commodo sed eros. Etiam volutpat a felis
+                                            vel elementum. Duis ut vestibulum orci, ut hendrerit felis. Nulla
+                                            nunc lectus, luctus ut tortor a, sollicitudin gravida dolor.
+                                            Integer euismod, velit non tempor mattis, odio neque ornare neque,
+                                            nec sollicitudin elit massa nec ante.
+                                        price: 6
+                                        quantity: 87
+                                pageable:
+                                    sort:
+                                        sorted: false
+                                        unsorted: true
+                                        empty: true
+                                    offset: 0
+                                    pageNumber: 0
+                                    pageSize: 5
+                                    paged: true
+                                    unpaged: false
+                                totalPages: 9
+                                totalElements: 41
+                                last: false
+                                size: 5
+                                number: 0
+                                sort:
+                                    sorted: false
+                                    unsorted: true
+                                    empty: true
+                                numberOfElements: 5
+                                first: true
+                                empty: false
+            description: ''
+        product-list:
+            content:
+                application/json:
+                    schema:
+                        type: array
+                        items:
+                            $ref: '#/components/schemas/product'
+                    examples:
+                        product-list-with-inventory:
+                            value:
+                                -
+                                    itemId: '329299'
+                                    name: Quarkus T-shirt
+                                    desc: >-
+                                        Our T-Shirt is an everyday essential! This short-sleeve heavyweight
+                                        T-shirt is comfortable, economical and made to last. Designed with a
+                                        traditional fit that runs true to size, he’ll show off his
+                                        personality, humor and interests with an easy, relaxed style.
+                                    price: 10
+                                    quantity: 736
+                                -
+                                    itemId: '329199'
+                                    name: Pronounced Kubernetes
+                                    desc: >-
+                                        Our Men's Value T-Shirt is an everyday essential! This short-sleeve
+                                        heavyweight T-shirt is comfortable, economical and made to last.
+                                        Designed with a traditional fit that runs true to size, he’ll show off
+                                        his personality, humor and interests with an easy, relaxed style.
+                                    price: 9
+                                    quantity: 512
+            description: List of products
+    securitySchemes:
+        product-catalog-api:
+            type: apiKey
+            name: api_key
+            in: header
+security:
+    -
+        product-catalog-api: []
+tags:
+    -
+        name: retail
+        description: ''
+    -
+        name: catalog
+        description: ''
+
