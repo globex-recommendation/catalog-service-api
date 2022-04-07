@@ -139,6 +139,8 @@ components:
                                     traditional fit that runs true to size, he’ll show off his personality,
                                     humor and interests with an easy, relaxed style.
                                 price: 10
+                                category: T-shirts
+                                image: 'https://example.com/image/329299'
                                 quantity: 736
                         product-without-inventory:
                             value:
@@ -150,6 +152,8 @@ components:
                                     traditional fit that runs true to size, he’ll show off his personality,
                                     humor and interests with an easy, relaxed style.
                                 price: 10
+                                category: T-shirts
+                                image: 'https://example.com/image/329299'
             description: ''
         product-list:
             content:
@@ -170,6 +174,8 @@ components:
                                         traditional fit that runs true to size, he’ll show off his
                                         personality, humor and interests with an easy, relaxed style.
                                     price: 10
+                                    category: T-shirts
+                                    image: 'https://example.com/image/329299'
                                     quantity: 736
                                 -
                                     itemId: '329199'
@@ -180,6 +186,8 @@ components:
                                         Designed with a traditional fit that runs true to size, he’ll show off
                                         his personality, humor and interests with an easy, relaxed style.
                                     price: 9
+                                    category: T-shirts
+                                    image: 'https://example.com/image/329199'
                                     quantity: 512
                         product-list-without-inventory:
                             value:
@@ -191,6 +199,8 @@ components:
                                         T-shirt is comfortable, economical and made to last. Designed with a
                                         traditional fit that runs true to size, he’ll show off his
                                         personality, humor and interests with an easy, relaxed style.
+                                    category: T-shirts
+                                    image: 'https://example.com/image/329299'
                                     price: 10
                                 -
                                     itemId: '329199'
@@ -201,6 +211,8 @@ components:
                                         Designed with a traditional fit that runs true to size, he’ll show off
                                         his personality, humor and interests with an easy, relaxed style.
                                     price: 9
+                                    category: T-shirts
+                                    image: 'https://example.com/image/329199'
             description: List of products
         paginated-product-list:
             content:
@@ -221,6 +233,8 @@ components:
                                             off his personality, humor and interests with an easy, relaxed
                                             style.
                                         price: 10
+                                        category: T-shirts
+                                        image: 'https://example.com/image/329299'
                                         quantity: 736
                                     -
                                         itemId: '329199'
@@ -232,6 +246,8 @@ components:
                                             size, he’ll show off his personality, humor and interests with an
                                             easy, relaxed style.
                                         price: 9
+                                        category: T-shirts
+                                        image: 'https://example.com/image/329199'
                                         quantity: 512
                                     -
                                         itemId: '165613'
@@ -245,6 +261,8 @@ components:
                                             Integer euismod, velit non tempor mattis, odio neque ornare neque,
                                             nec sollicitudin elit massa nec ante.
                                         price: 4.15
+                                        category: Socks
+                                        image: 'https://example.com/image/165613'
                                         quantity: 256
                                     -
                                         itemId: '165614'
@@ -258,6 +276,8 @@ components:
                                             Stainless Steel. Colour: Black Height:27,20 cm Diameter:7,20 cm
                                             Weight:380 gram
                                         price: 14.45
+                                        category: Bottles
+                                        image: 'https://example.com/image/165614'
                                         quantity: 54
                                     -
                                         itemId: '165954'
@@ -271,6 +291,8 @@ components:
                                             Integer euismod, velit non tempor mattis, odio neque ornare neque,
                                             nec sollicitudin elit massa nec ante.
                                         price: 6
+                                        category: Backpack
+                                        image: 'https://example.com/image/165954'
                                         quantity: 87
                                 pageable:
                                     sort:
@@ -307,6 +329,8 @@ components:
                                             off his personality, humor and interests with an easy, relaxed
                                             style.
                                         price: 10
+                                        category: T-shirts
+                                        image: 'https://example.com/image/329299'
                                     -
                                         itemId: '329199'
                                         name: Pronounced Kubernetes
@@ -316,6 +340,8 @@ components:
                                             made to last. Designed with a traditional fit that runs true to
                                             size, he’ll show off his personality, humor and interests with an
                                             easy, relaxed style.
+                                        category: T-shirts
+                                        image: 'https://example.com/image/329199'
                                         price: 9
                                     -
                                         itemId: '165613'
@@ -329,6 +355,8 @@ components:
                                             Integer euismod, velit non tempor mattis, odio neque ornare neque,
                                             nec sollicitudin elit massa nec ante.
                                         price: 4.15
+                                        category: Socks
+                                        image: 'https://example.com/image/165613'
                                     -
                                         itemId: '165614'
                                         name: Quarkus H2Go water bottle
@@ -341,6 +369,8 @@ components:
                                             Stainless Steel. Colour: Black Height:27,20 cm Diameter:7,20 cm
                                             Weight:380 gram
                                         price: 14.45
+                                        category: Bottles
+                                        image: 'https://example.com/image/165614'
                                     -
                                         itemId: '165954'
                                         name: Patagonia Refugio pack 28L
@@ -353,6 +383,8 @@ components:
                                             Integer euismod, velit non tempor mattis, odio neque ornare neque,
                                             nec sollicitudin elit massa nec ante.
                                         price: 6
+                                        category: Backpack
+                                        image: 'https://example.com/image/165954'
                                 pageable:
                                     sort:
                                         sorted: false
@@ -391,3 +423,4 @@ tags:
     -
         name: catalog
         description: ''
+
