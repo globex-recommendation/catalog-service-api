@@ -114,6 +114,34 @@ paths:
                     type: string
                 in: path
                 required: true
+    '/services/product/{category}/featured':
+        get:
+            parameters:
+                -
+                    examples:
+                        featured-product-list-without-inventory:
+                            value: 'false'
+                    name: inventory
+                    description: ''
+                    schema:
+                        type: boolean
+                    in: query
+            responses:
+                '200':
+                    $ref: '#/components/responses/product-list'
+            security:
+                -
+                    product-catalog-api: []
+        parameters:
+            -
+                examples:
+                    featured-product-list-with-inventory:
+                        value: T-shirts
+                    featured-product-list-without-inventory:
+                        value: T-shirts
+                name: category
+                in: path
+                required: true
 components:
     schemas:
         paginated-product-list:
