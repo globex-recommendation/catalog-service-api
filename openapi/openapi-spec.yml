@@ -8,7 +8,9 @@ info:
         url: 'https://opensource.org/licenses/MIT'
 paths:
     '/services/product/{id}':
+        summary: Get Product by Id
         get:
+            summary: Get product by Id
             parameters:
                 -
                     examples:
@@ -85,6 +87,7 @@ paths:
                     product-catalog-api: []
             summary: Get paginated list of products
     '/services/product/list/{ids}':
+        summary: get list of Products by Id
         get:
             parameters:
                 -
@@ -102,6 +105,7 @@ paths:
             security:
                 -
                     product-catalog-api: []
+            summary: Get list of products by Id
         parameters:
             -
                 examples:
